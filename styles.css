@@ -1,0 +1,157 @@
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  scroll-behavior: smooth;
+  scrollbar-color: #fff;
+  background-color: #fff;
+  width: fit-content;
+   display: flex;
+  align-items: flex-start;  /* Align both top-aligned */
+  padding: 20px;
+}
+
+.tabs-container {
+  top: 20px;
+  left: 20px;
+  text-align: left;
+  z-index: 100;
+  /* width: 300px;    */
+}
+
+.tabs-container input[type="radio"] {
+  display: none;
+}
+
+.tabs-container .tab-label {
+  cursor: pointer;
+  color: rgb(42, 42, 42);
+  margin-bottom: 6px;
+  margin-left: 0px;
+  font-size: 16px;
+  display:table;
+  width: 300px;
+  
+}
+
+#tab-images:checked + .tab-label[for="tab-images"],
+#tab-links:checked + .tab-label[for="tab-links"],
+#tab-contact:checked + .tab-label[for="tab-contact"] {
+  font-style: italic;
+  font-weight: bold;
+  color: rgb(42, 42, 42);
+  margin-bottom: 6px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-inline-end: 0%;
+  padding: 0px;
+  /* width: 300px; */
+  size:0cap;
+  
+}
+
+/* Hide all tab contents by default */
+
+.content-images,
+.content-links,
+.content-contact {
+  display: none;
+}
+
+/* Show only associated tab content */
+#tab-images:checked ~ .content-images {
+  display:block;
+}
+
+#tab-links:checked ~ .content-links {
+  display:initial;
+  margin-top: 0px;
+  margin-left: 100px;
+}
+
+#tab-contact:checked ~ .content-contact {
+  display: initial;
+}
+
+/* Shared tab content styling */
+.tab-content {
+  margin-left: 0px;
+  margin-top: 0px;
+  padding: 0px;
+}
+
+/* Image gallery layout */
+.gallery-vertical {
+  height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  
+}
+
+.gallery-vertical img {
+  max-width: 80%;
+  height: auto;
+  object-fit: cover;
+  border: none;
+}
+
+.gallery-vertical {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.gallery-vertical::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+
+/* Simple content panel styling */
+.info-panel {
+  max-width: 600px;
+  padding: 0px;
+  text-align: left;
+  display: table;
+  margin-top: 0px;
+}
+
+
+
+.info-panel a {
+  color: #2a2a2a;
+  text-decoration: none;
+}
+
+.info-panel a:hover {
+  text-decoration: underline;
+}
+
+
+
+.gallery-vertical {
+  top: 20px;
+  left: 20px;
+  text-align: left;
+  z-index: 100;
+   width: fit-content; 
+  /* position: top;
+} */
+ position: absolute;
+  top: 20px;
+  left: 60px;
+}
+
+/* Image gallery layout */
+.gallery-vertical {
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+ 
+}
+

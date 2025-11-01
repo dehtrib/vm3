@@ -3,58 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
   <title>Valentin Masé</title>
- <meta name="keywords" content="Valentin Masé"/>
- <meta name="description" content="Valentin Masé"/>
- <link href="https://valentin-mase/" rel="stylesheet">
- <link href="https://valentin-mase/" rel="stylesheet">
- <script type="text/javascript" ></script>
-   <script type="text/javascript">
-            var doadminfunctions = false;
-            var page = '';
-        </script>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Official website of artist Valentin Masé — images, projects, and contact information." />
+  <meta name="keywords" content="Valentin Masé, art, projects, exhibitions, artist portfolio" />
+  
+  <!-- Open Graph / Social Metadata -->
+  <meta property="og:title" content="Valentin Masé" />
+  <meta property="og:description" content="Official website of artist Valentin Masé — images, exhibitions, and contact info." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://valentin-mase.com/" />
+  <meta property="og:image" content="https://valentin-mase.com/images/preview.jpg" />
+
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 script-src 'self' 'unsafe-inline' https://www.google-analytics.com;
+                 style-src 'self' 'unsafe-inline';
+                 img-src 'self' data: https://www.google-analytics.com;
+                 connect-src 'self' https://www.google-analytics.com;
+                 frame-ancestors 'none';
+                 base-uri 'self';
+                 form-action 'self';">
+
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
-   </script>
-        <script type="text/javascript">
 
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-27734646-1']);
-            _gaq.push(['_trackPageview']);
+  <!-- Basic Config -->
+  <script type="text/javascript">
+    var doadminfunctions = false;
+    var page = '';
+  </script>
 
-            (function() {
-                var ga = document.createElement('script');
-                ga.type = 'text/javascript';
-                ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(ga, s);
-            }
-            )();
-        </script>
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27734646-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = 'https://www.google-analytics.com/ga.js'; // HTTPS enforced
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </head>
+
 <body>
+  <div class="tabs-container">
+    <input type="radio" name="tabs" id="tab-images" checked>
+    <label for="tab-images" class="tab-label">Images</label>
 
-<div class="tabs-container">
-  <input type="radio" name="tabs" id="tab-images" checked>
-  <label for="tab-images" class="tab-label">Images</label>
+    <input type="radio" name="tabs" id="tab-links">
+    <label for="tab-links" class="tab-label">Links</label>
 
-  <input type="radio" name="tabs" id="tab-links">
-  <label for="tab-links" class="tab-label">Links</label>
+    <input type="radio" name="tabs" id="tab-contact">
+    <label for="tab-contact" class="tab-label">Contact</label>
 
-  <input type="radio" name="tabs" id="tab-contact">
-  <label for="tab-contact" class="tab-label">Contact</label>
-
-  <!-- Images -->
-  <div class="tab-content content-images">
-    <div class="gallery-vertical">
-          <img src="images/1.jpg" alt="valentin mase-1" />
+    <!-- Images -->
+    <div class="tab-content content-images">
+      <div class="gallery-vertical">
+        <img src="images/1.jpg" alt="valentin mase-1" />
         <img src="images/10.jpg" alt="valentin mase-2" />
         <img src="images/11.jpg" alt="valentin mase-3" />
         <img src="images/13.jpg" alt="valentin mase-4" />
         <img src="images/16.5.jpeg" alt="valentin mase-5" />
         <img src="images/17.jpeg" alt="valentin mase-6" />
-         <img src="images/18.jpeg" alt="valentin mase-7" />
+        <img src="images/18.jpeg" alt="valentin mase-7" />
         <img src="images/2.jpg" alt="valentin mase-8" />
         <img src="images/20.jpg" alt="valentin mase-9" />
         <img src="images/3.1.jpg" alt="valentin mase-10" />
@@ -66,33 +89,26 @@
         <img src="images/IMG_9590.jpg" alt="valentin mase-16" />
         <img src="images/photo4.png" alt="valentin mase-17" />
         <img src="images/proyectoamil (43).jpg" alt="valentin mase-18" />
-      <!-- more images -->
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="tab-content content-links">
+      <div class="info-panel">
+        <a href="https://www.proyectoamil.org/exhibicion/heliotropismo/">Proyecto AMIL — Heliotropismo</a><br />
+        <a href="https://www.notvital.com/en/fundaziun/schloss-tarasp">Not Vital — Schloss Tarasp</a><br />
+        <a href="https://de.ra.co/events/2226554">Resident Advisor — Event</a><br />
+        <a href="https://saliva.live/exhibitions/df681407">Saliva — Exhibition</a>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="tab-content content-contact">
+      <div class="info-panel">
+        <p>Valentin Masé</p>
+        <p><a href="mailto:tourizm.network@gmail.com">tourizm.network@gmail.com</a></p>
+      </div>
     </div>
   </div>
-
-  <!-- Links -->
-  <div class="tab-content content-links">
-    <div class="info-panel">
-      <h2></h2>
-      <a href="https://www.proyectoamil.org/exhibicion/heliotropismo/">https://www.proyectoamil.org/exhibicion/heliotropismo/</a><br />
-      <a href="https://www.notvital.com/en/fundaziun/schloss-tarasp">https://www.notvital.com/en/fundaziun/schloss-tarasp</a><br />
-       <a href="https://de.ra.co/events/2226554">https://de.ra.co/events/2226554</a><br />
-       <a href="https://saliva.live/exhibitions/df681407">https://saliva.live/exhibitions/df681407</a>
-    </div>
-  </div>
-
-
-  <!-- Contact -->
-  <div class="tab-content content-contact">
-    <div class="info-panel">
-      <h2></h2>
-      <p>Valentin Masé <a href="mailto:tourizm.network@gmail.com"></a> <p>
-       <p> tourizm.network@gmail.com</p>
-    </div>
-  </div>
-</div>
-
 </body>
 </html>
-
-

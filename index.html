@@ -1,45 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Valentin Masé</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Official website of artist Valentin Masé — images, projects, and contact information." />
-  <meta name="keywords" content="Valentin Masé, art, projects, exhibitions, artist portfolio" />
-  
-  <!-- Open Graph / Social Metadata -->
-  <meta property="og:title" content="Valentin Masé" />
-  <meta property="og:description" content="Official website of artist Valentin Masé — images, exhibitions, and contact info." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://valentin-mase.com/" />
-  <meta property="og:image" content="https://valentin-mase.com/images/preview.jpg" />
-
-  <!-- Content Security Policy -->
-  <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self';
-                 script-src 'self' 'unsafe-inline' https://www.google-analytics.com;
-                 style-src 'self' 'unsafe-inline';
-                 img-src 'self' data: https://www.google-analytics.com;
-                 connect-src 'self' https://www.google-analytics.com;
-                 frame-ancestors 'none';
-                 base-uri 'self';
-                 form-action 'self';">
-
-  <!-- Favicon (optional) -->
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Basic Config -->
-  <script type="text/javascript">
-    var doadminfunctions = false;
-    var page = '';
-  </script>
 
   <!-- Google Analytics -->
   <script type="text/javascript">
@@ -51,98 +16,96 @@
       var ga = document.createElement('script');
       ga.type = 'text/javascript';
       ga.async = true;
-      ga.src = 'https://www.google-analytics.com/ga.js'; // HTTPS enforced
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(ga, s);
     })();
   </script>
 </head>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Valentin Masé</title>
-
-  <link rel="stylesheet" href="styles.css" />
-
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-27734646-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function () {
-      var ga = document.createElement('script');
-      ga.type = 'text/javascript';
-      ga.async = true;
-      ga.src =
-        (document.location.protocol === 'https:' ? 'https://ssl' : 'http://www') +
-        '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-</head>
-
 <body>
 
-  <div class="tabs-container">
+<div class="tabs-container">
+  <input type="radio" name="tabs" id="tab-images" checked>
+  <label for="tab-images" class="tab-label">Images</label>
 
-   <input type="file" id="files" name="files[]" multiple />
-<img id="image" />
+  <input type="radio" name="tabs" id="tab-links">
+  <label for="tab-links" class="tab-label">Links</label>
+
+  <input type="radio" name="tabs" id="tab-contact">
+  <label for="tab-contact" class="tab-label">Contact</label>
+
+  <!-- Images -->
+  <div class="tab-content content-images">
+    <div class="gallery-vertical" id="gallery">
+      <!-- Images from Google Drive will load here automatically -->
+    </div>
+  </div>
+
+  <!-- Links -->
+  <div class="tab-content content-links">
+    <div class="info-panel">
+      <h2></h2>
+      <a href="https://www.proyectoamil.org/exhibicion/heliotropismo/">https://www.proyectoamil.org/exhibicion/heliotropismo/</a><br />
+      <a href="https://www.notvital.com/en/fundaziun/schloss-tarasp">https://www.notvital.com/en/fundaziun/schloss-tarasp</a><br />
+      <a href="https://de.ra.co/events/2226554">https://de.ra.co/events/2226554</a><br />
+      <a href="https://saliva.live/exhibitions/df681407">https://saliva.live/exhibitions/df681407</a>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="tab-content content-contact">
+    <div class="info-panel">
+      <h2></h2>
+      <p>Valentin Masé <a href="mailto:tourizm.network@gmail.com"></a></p>
+      <p>tourizm.network@gmail.com</p>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox overlay -->
+<div id="lightbox" class="lightbox-overlay">
+  <img src="" alt="expanded image">
+</div>
 
 <script>
-    function onLoad(evt) {
-        /* do sth with evt.target.result - it image in base64 format ("data:image/jpeg;base64,....") */
-        localStorage.setItem('image', evt.target.result);
-        document.getElementById('image').src = evt.target.result;
-    };
+// ====== CONFIGURE THESE ======
+const FOLDER_ID = "1fg3-OhZNBm3dIw3ASl2JFdSZ2c3taEIb"; // Replace with your Google Drive folder ID
+const API_KEY = "AIzaSyBkCJLYU79inSbU5AflUTAKLRusqRjqXhM";     // Replace with your Google API key
+// ==============================
 
-    function handleFileUpload(evt) {
-        var files = evt.target.files; // FileList object
+const gallery = document.getElementById("gallery");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = lightbox.querySelector("img");
 
-        for (var i = 0; i < files.length; i++) {
-            var f = files[i];
+// Fetch images from Google Drive folder
+fetch(`https://www.googleapis.com/drive/v3/files?q='${FOLDER_ID}'+in+parents and mimeType contains 'image/'&fields=files(id,name)&orderBy=name&key=${API_KEY}`)
+  .then(res => res.json())
+  .then(data => {
+    if (!data.files) return;
+    data.files.forEach(file => {
+      const img = document.createElement("img");
+      img.src = `https://drive.google.com/uc?export=view&id=${file.id}`;
+      img.alt = file.name;
+      img.loading = "lazy"; // optional lazy load
 
-            // Only process image files.
-            if (!f.type.match('image.*')) {
-                continue;
-            }
+      // Lightbox click
+      img.addEventListener("click", () => {
+        lightboxImage.src = img.src;
+        lightbox.classList.add("active");
+      });
 
-            var reader = new FileReader();
-            reader.onload = onLoad;
-            reader.readAsDataURL(f);
-        }
-    }
+      gallery.appendChild(img);
+    });
+  })
+  .catch(err => console.error("Error loading images:", err));
 
-    document.getElementById('files').addEventListener('change', handleFileUpload, false);
-
-    var image = localStorage.getItem('image');
-    if (image !== null) {
-        document.getElementById('image').src = image;
-    }
+// Lightbox close
+lightbox.addEventListener("click", e => {
+  if (e.target !== lightboxImage) {
+    lightbox.classList.remove("active");
+  }
+});
 </script>
-
-      </div>
-    </section>
-
-    <!-- LINKS -->
-    <section class="tab-content content-links">
-      <div class="info-panel">
-        <a href="https://www.proyectoamil.org/exhibicion/heliotropismo/">proyectoamil.org</a><br>
-        <a href="https://www.notvital.com/en/fundaziun/schloss-tarasp">notvital.com</a><br>
-        <a href="https://de.ra.co/events/2226554">ra.co</a><br>
-        <a href="https://saliva.live/exhibitions/df681407">saliva.live</a>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="tab-content content-contact">
-      <div class="info-panel">
-        <p>Valentin Masé</p>
-        <p>tourizm.network@gmail.com</p>
-      </div>
-    </section>
-
-  </div>
 
 </body>
 </html>

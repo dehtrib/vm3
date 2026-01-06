@@ -21,33 +21,27 @@
   <!-- Images -->
   <div class="tab-content content-images">
     <div class="gallery-vertical" id="gallery">
-      <!-- Google Drive images will load here -->
+      <!-- Images from Google Drive will load here automatically -->
     </div>
   </div>
 
   <!-- Links -->
   <div class="tab-content content-links">
     <div class="info-panel">
-      <a href="https://www.proyectoamil.org/exhibicion/heliotropismo/" target="_blank">
-        https://www.proyectoamil.org/exhibicion/heliotropismo/
-      </a><br />
-      <a href="https://www.notvital.com/en/fundaziun/schloss-tarasp" target="_blank">
-        https://www.notvital.com/en/fundaziun/schloss-tarasp
-      </a><br />
-      <a href="https://de.ra.co/events/2226554" target="_blank">
-        https://de.ra.co/events/2226554
-      </a><br />
-      <a href="https://saliva.live/exhibitions/df681407" target="_blank">
-        https://saliva.live/exhibitions/df681407
-      </a>
+      <h2></h2>
+      <a href="https://www.proyectoamil.org/exhibicion/heliotropismo/">https://www.proyectoamil.org/exhibicion/heliotropismo/</a><br />
+      <a href="https://www.notvital.com/en/fundaziun/schloss-tarasp">https://www.notvital.com/en/fundaziun/schloss-tarasp</a><br />
+      <a href="https://de.ra.co/events/2226554">https://de.ra.co/events/2226554</a><br />
+      <a href="https://saliva.live/exhibitions/df681407">https://saliva.live/exhibitions/df681407</a>
     </div>
   </div>
 
   <!-- Contact -->
   <div class="tab-content content-contact">
     <div class="info-panel">
-      <p>Valentin Masé</p>
-      <p><a href="mailto:tourizm.network@gmail.com">tourizm.network@gmail.com</a></p>
+      <h2></h2>
+      <p>Valentin Masé <a href="mailto:tourizm.network@gmail.com"></a></p>
+      <p>tourizm.network@gmail.com</p>
     </div>
   </div>
 </div>
@@ -57,49 +51,43 @@
   <img src="" alt="expanded image">
 </div>
 
-<!-- Load API key -->
-<script src="js/config.js"></script>
-
 <script>
-const FOLDER_ID = "1fg3-OhZNBm3dIw3ASl2JFdSZ2c3taEIb";
+// Keep your constants for lightbox and gallery
 const gallery = document.getElementById("gallery");
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = lightbox.querySelector("img");
 
-// ✅ FIXED GOOGLE DRIVE API REQUEST
-fetch(
-  `https://www.googleapis.com/drive/v3/files` +
-  `?q='${FOLDER_ID}'+in+parents+and+mimeType+contains+'image/'` +
-  `&spaces=drive` +
-  `&fields=files(id,name)` +
-  `&orderBy=name` +
-  `&key=${API_KEY}`
-)
-.then(res => res.json())
-.then(data => {
-  if (!data.files || data.files.length === 0) {
-    gallery.innerHTML = "<p>No images found in this folder.</p>";
-    return;
-  }
+// ✅ Replace the old Drive API fetch with a JSON feed from Google Apps Script
+// Deploy a Google Apps Script as a web app that returns JSON list of image URLs
+// Example: https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
+const DRIVE_JSON_FEED = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
 
-  data.files.forEach(file => {
-    const img = document.createElement("img");
-    img.src = `https://drive.google.com/uc?export=view&id=${file.id}`;
-    img.alt = file.name;
-    img.loading = "lazy";
+fetch(DRIVE_JSON_FEED)
+  .then(res => res.json())
+  .then(imageUrls => {
+    if (!imageUrls || imageUrls.length === 0) {
+      gallery.innerHTML = "<p>No images found in the folder.</p>";
+      return;
+    }
 
-    img.addEventListener("click", () => {
-      lightboxImage.src = img.src;
-      lightbox.classList.add("active");
+    imageUrls.forEach(url => {
+      const img = document.createElement("img");
+      img.src = url;
+      img.alt = "Gallery image";
+      img.loading = "lazy";
+
+      img.addEventListener("click", () => {
+        lightboxImage.src = img.src;
+        lightbox.classList.add("active");
+      });
+
+      gallery.appendChild(img);
     });
-
-    gallery.appendChild(img);
+  })
+  .catch(err => {
+    console.error("Error loading images:", err);
+    gallery.innerHTML = "<p>Failed to load images.</p>";
   });
-})
-.catch(err => {
-  console.error("Error loading images:", err);
-  gallery.innerHTML = "<p>Failed to load images.</p>";
-});
 
 // Lightbox close
 lightbox.addEventListener("click", e => {
@@ -108,6 +96,5 @@ lightbox.addEventListener("click", e => {
   }
 });
 </script>
-
 </body>
 </html>

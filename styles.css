@@ -1,16 +1,22 @@
+
 body {
   margin: 0;
   font-family: sans-serif;
-  background-color: #fff;
   scroll-behavior: smooth;
-  display: flex;
-  align-items: flex-start;
+  scrollbar-color: #fff;
+  background-color: #fff;
+  width: fit-content;
+   display: flex;
+  align-items: flex-start;  /* Align both top-aligned */
   padding: 20px;
 }
 
 .tabs-container {
+  top: 20px;
+  left: 20px;
   text-align: left;
   z-index: 100;
+  /* width: 300px;    */
 }
 
 .tabs-container input[type="radio"] {
@@ -21,73 +27,98 @@ body {
   cursor: pointer;
   color: rgb(42, 42, 42);
   margin-bottom: 6px;
+  margin-left: 0px;
   font-size: 16px;
-  display: table;
+  display:table;
   width: 300px;
+  
 }
 
-#tab-images:checked + .tab-label,
-#tab-links:checked + .tab-label,
-#tab-contact:checked + .tab-label {
+#tab-images:checked + .tab-label[for="tab-images"],
+#tab-links:checked + .tab-label[for="tab-links"],
+#tab-contact:checked + .tab-label[for="tab-contact"] {
   font-style: italic;
   font-weight: bold;
+  color: rgb(42, 42, 42);
+  margin-bottom: 6px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-inline-end: 0%;
+  padding: 0px;
+  /* width: 300px; */
+  size:0cap;
+  
 }
+
+/* Hide all tab contents by default */
 
 .content-images,
 .content-links,
 .content-contact {
-  visibility: hidden;
-  position: absolute;
-  pointer-events: none;
+  display: none;
 }
 
-#tab-images:checked ~ .content-images,
-#tab-links:checked ~ .content-links,
+/* Show only associated tab content */
+#tab-images:checked ~ .content-images {
+  display:block;
+}
+
+#tab-links:checked ~ .content-links {
+  display:initial;
+  margin-top: 0px;
+  margin-left: 100px;
+}
+
 #tab-contact:checked ~ .content-contact {
-  visibility: visible;
-  position: static;
-  pointer-events: auto;
+  display: initial;
 }
 
-/* Gallery container */
-.content-images {
-  max-height: 90vh;       /* allow scrolling within container */
-  overflow-y: auto;
-  
-  /* Hide scrollbars */
-  scrollbar-width: none;  /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+/* Shared tab content styling */
+.tab-content {
+  margin-left: 0px;
+  margin-top: 0px;
+  padding: 0px;
 }
 
-.content-images::-webkit-scrollbar {
-  width: 0;  /* Chrome, Safari, Opera */
-  background: transparent;
-}
-
-/* Vertical gallery with columns */
+/* Image gallery layout */
 .gallery-vertical {
-  column-count: 3;
-  column-gap: 24px;
-  padding-right: 10px;
+  height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  
 }
 
 .gallery-vertical img {
-  width: 100%;
+  max-width: 80%;
   height: auto;
-  display: block;
-  margin-bottom: 12px;
-  break-inside: avoid;
-  cursor: pointer;
+  object-fit: cover;
   border: none;
 }
 
-/* Info panel styling */
+.gallery-vertical {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.gallery-vertical::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+
+/* Simple content panel styling */
 .info-panel {
   max-width: 600px;
-  padding: 0;
+  padding: 0px;
   text-align: left;
-  margin-left: 120px;
+  display: table;
+  margin-top: 0px;
 }
+
+
 
 .info-panel a {
   color: #2a2a2a;
@@ -98,23 +129,29 @@ body {
   text-decoration: underline;
 }
 
-/* Lightbox */
-.lightbox-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.7);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+
+
+.gallery-vertical {
+  top: 20px;
+  left: 20px;
+  text-align: left;
+  z-index: 100;
+   width: fit-content; 
+  /* position: top;
+} */
+ position: absolute;
+  top: 20px;
+  left: 60px;
 }
 
-.lightbox-overlay img {
-  max-width: 90%;
-  max-height: 90%;
-}
-
-.lightbox-overlay.active {
+/* Image gallery layout */
+.gallery-vertical {
+  height: 100vh;
+  overflow-y: auto;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+ 
 }
+

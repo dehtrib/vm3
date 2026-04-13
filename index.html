@@ -26,159 +26,112 @@
 </head>
 <body>
 
-<div class="tabs-container">
-  <input type="radio" name="tabs" id="tab-images" checked>
-  <label for="tab-images" class="tab-label">Images</label>
-
-  <input type="radio" name="tabs" id="tab-links">
-  <label for="tab-links" class="tab-label">Links</label>
-
-  <input type="radio" name="tabs" id="tab-contact">
-  <label for="tab-contact" class="tab-label">Contact</label>
-
-  <!-- Images -->
-  <div class="tab-content content-images">
-    <div class="gallery-vertical">
-<!--        
-      <div class="tab-content content-works">
-        <div class="image-container"> -->
-
-<img src="images/1.jpeg" alt="1.jpeg">
-<img src="images/2.jpeg" alt="2.jpeg">
-<img src="images/3.jpeg" alt="3.jpeg"> 
-<img src="images/4.jpeg" alt="4.jpeg">
-<img src="images/5.jpeg" alt="5.jpeg">
-<img src="images/6.jpg" alt="6.jpg">
-<img src="images/7.jpg" alt="7.jpg">
-<img src="images/8.jpg" alt="8.jpg">
-<img src="images/9.jpeg" alt="9.jpeg">
-<img src="images/10.jpeg" alt="10.jpeg">
-<img src="images/11.jpeg" alt="11.jpeg">
-<img src="images/12.jpeg" alt="12.jpeg">
-<img src="images/13.jpeg" alt="13.jpeg">
-<img src="images/14.jpeg" alt="14.jpeg">
-<img src="images/15.jpeg" alt="15.jpeg">
-<img src="images/16.jpeg" alt="16.jpeg">
-<img src="images/17.jpeg" alt="17.jpeg">
-<img src="images/18.jpeg" alt="18.jpeg">
-<img src="images/19.jpeg" alt="19.jpeg">
-<img src="images/20.jpeg" alt="20.jpeg">
-<img src="images/21.jpeg" alt="21.jpeg">
-<img src="images/22.jpeg" alt="22.jpeg">
-<img src="images/23.jpg" alt="23.jpg">
-<img src="images/24.jpg" alt="24.jpg">
-<img src="images/25.jpg" alt="25.jpg">
-<img src="images/26.jpg" alt="26.jpg">
-<img src="images/30.jpg" alt="30.jpg">
-<img src="images/31.jpg" alt="31.jpg">
-<img src="images/32.jpeg" alt="32.jpeg">
-<img src="images/33.jpg" alt="33.jpg">
-<img src="images/34.jpg" alt="34.jpg">
-<img src="images/35.jpeg" alt="35.jpeg">
-<img src="images/36.jpeg" alt="36.jpeg">
-<img src="images/37.jpeg" alt="37.jpeg">
-<img src="images/38.jpeg" alt="38.jpeg">
-<img src="images/39.jpeg" alt="39.jpeg">
-<img src="images/40.jpeg" alt="40.jpeg">
-<img src="images/41.jpeg" alt="41.jpeg">
-<img src="images/42.jpeg" alt="42.jpeg">
-<img src="images/43.jpeg" alt="43.jpeg">
-<img src="images/44.jpg" alt="44.jpg">
-<img src="images/45.jpeg" alt="45.jpeg">
-<img src="images/46.jpeg" alt="46.jpeg">
-<img src="images/47.jpeg" alt="47.jpeg">
-<img src="images/48.jpeg" alt="48.jpeg">
-<img src="images/49.jpg" alt="49.jpg">
-<img src="images/50.jpeg" alt="50.jpeg">
-<img src="images/51.jpeg" alt="51.jpeg">
-<img src="images/52.jpg" alt="52.jpg">
-<img src="images/53.jpeg" alt="53.jpeg">
-<img src="images/54.jpg" alt="54.jpg">
-<img src="images/55.jpeg" alt="55.jpeg">
-<img src="images/56.jpeg" alt="56.jpeg">
-<img src="images/57.jpeg" alt="57.jpeg">
-<img src="images/58.jpeg" alt="58.jpeg">
-<img src="images/59.jpg" alt="59.jpg">
-<img src="images/60.jpeg" alt="60.jpeg">
-<img src="images/61.jpeg" alt="61.jpeg">
-<img src="images/62.jpeg" alt="62.jpeg">
-<img src="images/63.jpeg" alt="63.jpeg">
-<img src="images/64.jpeg" alt="64.jpeg">
-<img src="images/66.jpeg" alt="66.jpeg">
-<img src="images/67.jpeg" alt="67.jpeg">
-<img src="images/68.jpeg" alt="68.jpeg">
-<img src="images/69.jpeg" alt="69.jpeg">
-<img src="images/70.jpeg" alt="70.jpeg">
-<img src="images/71.jpeg" alt="71.jpeg">
-<img src="images/72.jpeg" alt="72.jpeg">
-<img src="images/73.jpeg" alt="73.jpeg">
-<img src="images/74.jpeg" alt="74.jpeg">
-<img src="images/75.jpeg" alt="75.jpeg">
-<img src="images/76.jpeg" alt="76.jpeg">
-<img src="images/77.jpeg" alt="77.jpeg">
-<img src="images/78.jpeg" alt="78.jpeg">
-<img src="images/79.jpeg" alt="79.jpeg">
-<img src="images/80.jpeg" alt="80.jpeg">
-<img src="images/81.jpeg" alt="81.jpeg">
-<img src="images/82.jpeg" alt="82.jpeg">
-<img src="images/83.jpg" alt="83.jpg">
-<img src="images/84.jpeg" alt="84.jpeg">
 
 
-<!-- </div>
-       
-</div> -->
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Official website of artist Valentin Masé — images, projects, and contact information." />
+  <meta name="keywords" content="Valentin Masé, art, projects, exhibitions, artist portfolio" />
+  
+  <!-- Open Graph / Social Metadata -->
+  <meta property="og:title" content="Valentin Masé" />
+  <meta property="og:description" content="Official website of artist Valentin Masé — images, exhibitions, and contact info." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://valentin-mase.com/" />
+  <meta property="og:image" content="https://valentin-mase.com/images/preview.jpg" />
 
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 script-src 'self' 'unsafe-inline' https://www.google-analytics.com;
+                 style-src 'self' 'unsafe-inline';
+                 img-src 'self' data: https://www.google-analytics.com;
+                 connect-src 'self' https://www.google-analytics.com;
+                 frame-ancestors 'none';
+                 base-uri 'self';
+                 form-action 'self';">
 
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Basic Config -->
+  <script type="text/javascript">
+    var doadminfunctions = false;
+    var page = '';
+  </script>
+
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27734646-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = 'https://www.google-analytics.com/ga.js'; // HTTPS enforced
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+
+<body>
+  <div class="tabs-container">
+    <input type="radio" name="tabs" id="tab-images" checked>
+    <label for="tab-images" class="tab-label">Images</label>
+
+    <input type="radio" name="tabs" id="tab-links">
+    <label for="tab-links" class="tab-label">Links</label>
+
+    <input type="radio" name="tabs" id="tab-contact">
+    <label for="tab-contact" class="tab-label">Contact</label>
+
+    <!-- Images -->
+    <div class="tab-content content-images">
+      <div class="gallery-vertical">
+        <img src="images/1.jpg" alt="valentin mase-1" />
+        <img src="images/10.jpg" alt="valentin mase-2" />
+        <img src="images/11.jpg" alt="valentin mase-3" />
+        <img src="images/13.jpg" alt="valentin mase-4" />
+        <img src="images/16.5.jpeg" alt="valentin mase-5" />
+        <img src="images/17.jpeg" alt="valentin mase-6" />
+        <img src="images/18.jpeg" alt="valentin mase-7" />
+        <img src="images/2.jpg" alt="valentin mase-8" />
+        <img src="images/20.jpg" alt="valentin mase-9" />
+        <img src="images/3.1.jpg" alt="valentin mase-10" />
+        <img src="images/3.png" alt="valentin mase-11" />
+        <img src="images/3.5.jpg" alt="valentin mase-12" />
+        <img src="images/5.jpg" alt="valentin mase-13" />
+        <img src="images/7.png" alt="valentin mase-14" />
+        <img src="images/8.png" alt="valentin mase-15" />
+        <img src="images/IMG_9590.jpg" alt="valentin mase-16" />
+        <img src="images/photo4.png" alt="valentin mase-17" />
+        <img src="images/proyectoamil (43).jpg" alt="valentin mase-18" />
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="tab-content content-links">
+      <div class="info-panel">
+        <a href="https://www.proyectoamil.org/exhibicion/heliotropismo/">Proyecto AMIL — Heliotropismo</a><br />
+        <a href="https://www.notvital.com/en/fundaziun/schloss-tarasp">Not Vital — Schloss Tarasp</a><br />
+        <a href="https://de.ra.co/events/2226554">Resident Advisor — Event</a><br />
+        <a href="https://saliva.live/exhibitions/df681407">Saliva — Exhibition</a>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="tab-content content-contact">
+      <div class="info-panel">
+        <p>Valentin Masé</p>
+        <p><a href="mailto:tourizm.network@gmail.com">tourizm.network@gmail.com</a></p>
+      </div>
     </div>
   </div>
-
-  <!-- Links -->
-  <div class="tab-content content-links">
-    <div class="info-panel">
-      <h2></h2>
-      <a href="https://www.proyectoamil.org/exhibicion/heliotropismo/" target="_blank">https://www.proyectoamil.org/exhibicion/heliotropismo/</a><br />
-      <a href="https://www.notvital.com/en/fundaziun/schloss-tarasp" target="_blank">https://www.notvital.com/en/fundaziun/schloss-tarasp</a><br />
-       <a href="https://de.ra.co/events/2226554" target="_blank">https://de.ra.co/events/2226554</a><br />
-       <a href="https://saliva.live/exhibitions/df681407" target="_blank">https://saliva.live/exhibitions/df681407</a>
-    </div>
-  </div>
-
-
-  <!-- Contact -->
-  <div class="tab-content content-contact">
-    <div class="info-panel">
-      <h2></h2>
-      <p>Valentin Masé <a href="mailto:tourizm.network@gmail.com"></a> <p>
-       <p> tourizm.network@gmail.com</p>
-    </div>
-  </div>
-</div>
-
-
-<!-- Lightbox overlay -->
-<div id="lightbox" class="lightbox-overlay">
-  <img src="" alt="expanded image">
-</div>
-
-<script>
-const lightbox = document.getElementById('lightbox');
-const lightboxImage = lightbox.querySelector('img');
-const galleryImages = document.querySelectorAll('.gallery-vertical img');
-
-galleryImages.forEach(img => {
-  img.addEventListener('click', () => {
-    lightboxImage.src = img.src;
-    lightbox.classList.add('active');
-  });
-});
-
-lightbox.addEventListener('click', e => {
-  if(e.target !== lightboxImage){
-    lightbox.classList.remove('active');
-  }
-});
-</script>
 </body>
 </html>
 
